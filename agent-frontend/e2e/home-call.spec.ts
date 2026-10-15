@@ -5,21 +5,19 @@ test.describe("Pantalla Principal y Asistente de Voz", () => {
     await page.goto("/")
   })
 
-  test("carga la página principal con branding genérico y título", async ({ page }) => {
-    await expect(page).toHaveTitle(/Speaker Agent/)
-    await expect(page.getByText("Speaker Agent")).toBeVisible()
-    await expect(page.getByText("Asistente de Voz · Pedidos y Reservas")).toBeVisible()
+  test("carga la página principal con la marca y el título", async ({ page }) => {
+    await expect(page).toHaveTitle(/Las Flamas/)
+    await expect(page.getByText("Las Flamas", { exact: true }).first()).toBeVisible()
+    await expect(page.getByText("Parrilla boliviana", { exact: true })).toBeVisible()
   })
 
   test("muestra el orbe de voz en estado inicial con controles", async ({ page }) => {
     // El orbe muestra estado inactivo genérico
-    await expect(page.getByText("Asistente de Voz", { exact: true })).toBeVisible()
-    await expect(
-      page.getByText("Presiona 'Iniciar Llamada' para hablar por voz")
-    ).toBeVisible()
+    await expect(page.getByText("Las Flamas, a la orden")).toBeVisible()
+    await expect(page.getByText(/Toca «Llamar» y pide como en el local/)).toBeVisible()
 
     // Botón de llamada
-    const startCallBtn = page.getByRole("button", { name: /Iniciar Llamada/i })
+    const startCallBtn = page.getByRole("button", { name: /Llamar a Las Flamas/i })
     await expect(startCallBtn).toBeVisible()
     await expect(startCallBtn).toBeEnabled()
 
@@ -37,11 +35,11 @@ test.describe("Pantalla Principal y Asistente de Voz", () => {
     page,
   }) => {
     // Sugerencias
-    await expect(page.getByText("Qué puedes probar con el asistente")).toBeVisible()
-    await expect(page.getByText("Realizar un pedido (Entrega / Retiro)")).toBeVisible()
-    await expect(page.getByText("Reservar una mesa", { exact: true })).toBeVisible()
+    await expect(page.getByText("Prueba diciendo")).toBeVisible()
+    await expect(page.getByText("Pedir para llevar")).toBeVisible()
+    await expect(page.getByText("Reservar mesa", { exact: true })).toBeVisible()
 
-    // Panel lateral de pedido
-    await expect(page.getByText("Pedido en Vivo")).toBeVisible()
+    // Panel lateral de la comanda
+    await expect(page.getByText("La comanda")).toBeVisible()
   })
 })

@@ -18,7 +18,8 @@ test.describe("Tema y Sesión en Navbar", () => {
     page,
   }) => {
     await page.goto("/")
-    // El badge de sesión muestra 'Sesión: xxxx'
-    await expect(page.getByText(/Sesión:/i)).toBeVisible()
+    // El badge de sesión muestra 'Mesa xxxx' y el id completo en el title
+    await expect(page.getByText(/^Mesa [\w-]{8}$/)).toBeVisible()
+    await expect(page.getByTitle(/Sesión activa:/)).toBeVisible()
   })
 })

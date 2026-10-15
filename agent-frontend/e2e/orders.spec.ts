@@ -7,7 +7,7 @@ test.describe("Tablero Kanban de Cocina y Pedidos", () => {
     await page.goto("/")
 
     // Clic en pestaña Cocina / Pedidos
-    const ordersTabBtn = page.getByRole("button", { name: /Cocina \/ Pedidos/i })
+    const ordersTabBtn = page.getByRole("button", { name: "Cocina", exact: true })
     await expect(ordersTabBtn).toBeVisible()
     await ordersTabBtn.click()
 
