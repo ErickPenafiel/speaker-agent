@@ -1,0 +1,10 @@
+{
+  "name": "transfer_to_human",
+  "args": {"reason": "quiere hablar con el gerente"},
+  "call": {
+    "call_id": "Jabr9TXYYJHfvl6Syypi88rdAHYHmcq6",
+    "call_type": "web_call",
+    "call_status": "ongoing",
+    "metadata": {"sessionId": "{{SESSION}}", "language": "es"}
+  }
+}

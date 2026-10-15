@@ -1,0 +1,19 @@
+{
+  "name": "create_order",
+  "args": {
+    "customer_name": "Ana Pérez",
+    "type": "pickup",
+    "customer_confirmed": true,
+    "items": [{"name": "lomo", "quantity": 1}, {"name": "jugo de maracuyá", "quantity": 2}]
+  },
+  "call": {
+    "call_id": "Jabr9TXYYJHfvl6Syypi88rdAHYHmcq6",
+    "call_type": "web_call",
+    "agent_id": "oBeDLoLOeuAbiuaMFXRtDOLriTJ5tSxD",
+    "call_status": "ongoing",
+    "metadata": {"sessionId": "{{SESSION}}", "language": "es"},
+    "retell_llm_dynamic_variables": {"language": "es", "now": "Thursday 2026-10-08 15:00"},
+    "transcript": "Agent: La Brasa, habla Sofía...",
+    "transcript_object": []
+  }
+}

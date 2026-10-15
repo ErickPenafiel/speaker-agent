@@ -1,0 +1,32 @@
+{
+  "message": {
+    "type": "end-of-call-report",
+    "endedReason": "customer-ended-call",
+    "call": {
+      "id": "019a0000-aaaa-7000-8000-000000000001",
+      "type": "webCall",
+      "assistantId": "asst-fixture",
+      "metadata": {"sessionId": "{{SESSION}}", "language": "es"}
+    },
+    "startedAt": "2026-10-08T15:00:00.000Z",
+    "endedAt": "2026-10-08T15:03:10.000Z",
+    "cost": 0.21,
+    "analysis": {
+      "summary": "Ana pidió un lomo y dos jugos, reservó mesa para 4 y pidió hablar con el gerente.",
+      "successEvaluation": "true"
+    },
+    "artifact": {
+      "recording": {"stereoUrl": "https://example.invalid/rec.wav"},
+      "transcript": "AI: La Brasa, habla Sofía. User: Quiero un lomo...",
+      "messages": [
+        {"role": "system", "message": "Eres Sofía, la asistente de La Brasa...", "time": 1, "secondsFromStart": 0},
+        {"role": "assistant", "message": "La Brasa, habla Sofía. ¿En qué puedo ayudarle?", "time": 2, "secondsFromStart": 1.2},
+        {"role": "user", "message": "Quiero un lomo y dos jugos de maracuyá para recoger.", "time": 3, "secondsFromStart": 5.0},
+        {"role": "tool_calls", "toolCalls": [{"id": "toolu_01OrderAAAA", "function": {"name": "create_order"}}], "time": 4},
+        {"role": "tool_call_result", "toolCallId": "toolu_01OrderAAAA", "result": "Pedido 1 confirmado.", "time": 5},
+        {"role": "assistant", "message": "Listo, su pedido está confirmado.", "time": 6, "secondsFromStart": 9.0},
+        {"role": "user", "message": "Gracias, quiero hablar con el gerente.", "time": 7, "secondsFromStart": 14.0}
+      ]
+    }
+  }
+}

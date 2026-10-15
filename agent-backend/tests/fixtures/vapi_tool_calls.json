@@ -1,0 +1,50 @@
+{
+  "message": {
+    "timestamp": 1760000000000,
+    "type": "tool-calls",
+    "toolCallList": [
+      {
+        "id": "toolu_01OrderAAAA",
+        "type": "function",
+        "function": {
+          "name": "create_order",
+          "arguments": {
+            "customer_name": "Ana Pérez",
+            "type": "recoger",
+            "customer_confirmed": true,
+            "items": [
+              {"name": "lomo", "quantity": 1},
+              {"name": "jugo de maracuyá", "quantity": "2", "notes": "sin azúcar"}
+            ]
+          }
+        }
+      },
+      {
+        "id": "toolu_01ReservBBBB",
+        "type": "function",
+        "function": {
+          "name": "create_reservation",
+          "arguments": {"customer_name": "Ana Pérez", "party_size": 4, "date": "{{TOMORROW}}", "time": "8:00 PM"}
+        }
+      },
+      {
+        "id": "toolu_01TransferCCCC",
+        "type": "function",
+        "function": {"name": "transfer_to_human", "arguments": "{\"reason\": \"quiere hablar con el gerente\"}"}
+      }
+    ],
+    "toolWithToolCallList": [
+      {"type": "function", "name": "create_order", "toolCall": {"id": "toolu_01OrderAAAA", "type": "function", "parameters": {"customer_name": "Ana Pérez"}}},
+      {"type": "function", "name": "create_reservation", "toolCall": {"id": "toolu_01ReservBBBB", "type": "function", "parameters": {"customer_name": "Ana Pérez"}}},
+      {"type": "function", "name": "transfer_to_human", "toolCall": {"id": "toolu_01TransferCCCC", "type": "function", "parameters": {"reason": "x"}}}
+    ],
+    "call": {
+      "id": "019a0000-aaaa-7000-8000-000000000001",
+      "orgId": "org-fixture",
+      "type": "webCall",
+      "assistantId": "asst-fixture",
+      "metadata": {"sessionId": "{{SESSION}}", "language": "es"}
+    },
+    "assistant": {"id": "asst-fixture", "name": "Sofía"}
+  }
+}

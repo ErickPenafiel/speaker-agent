@@ -1,0 +1,25 @@
+# Blueprint de Render (NO probado en vivo: revisar rutas y planes vigentes).
+# El plan gratuito duerme el servicio tras un rato sin tráfico -> ver .github/workflows/keepwarm.yml
+services:
+  - type: web
+    name: speaker-agent-api
+    runtime: docker
+    dockerContext: ./agent-backend
+    dockerfilePath: ./agent-backend/Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - { key: ENVIRONMENT, value: production }
+      - { key: RUN_MIGRATIONS, value: "1" }   # sin preDeployCommand en el plan gratuito: migrar al arrancar
+      - { key: SEED_ON_START, value: "1" }
+      - { key: TIMEZONE, value: America/La_Paz }
+      - { key: VOICE_PROVIDER, value: vapi }
+      - { key: DATABASE_URL, sync: false }          # URL de Neon (puede ser la pooled)
+      - { key: DATABASE_URL_DIRECT, sync: false }   # URL directa de Neon, para migraciones
+      - { key: FRONTEND_ORIGIN, sync: false }
+      - { key: VAPI_WEBHOOK_SECRET, sync: false }
+      - { key: VAPI_PUBLIC_KEY, sync: false }
+      - { key: VAPI_ASSISTANT_ID, sync: false }
+      - { key: RETELL_API_KEY, sync: false }
+      - { key: RETELL_AGENT_ID, sync: false }
+      - { key: SENTRY_DSN, sync: false }
