@@ -7,7 +7,7 @@ test.describe("Features y Tools del Asistente", () => {
     await page.goto("/")
 
     // Navegar a Cocina / Pedidos
-    await page.getByRole("button", { name: /Cocina \/ Pedidos/i }).click()
+    await page.getByRole("button", { name: "Cocina", exact: true }).click()
     await expect(page.getByText("Tablero de Cocina")).toBeVisible()
 
     // Los pedidos de demo sembrados deben tener el botón de acción bloqueado con 'Solo lectura'
@@ -43,11 +43,11 @@ test.describe("Features y Tools del Asistente", () => {
     await page.goto("/")
 
     // Ir a pestaña de Historial
-    await page.getByRole("button", { name: "Historial" }).click()
+    await page.getByRole("button", { name: "Llamadas", exact: true }).click()
     await expect(page.getByText("Historial de Llamadas")).toBeVisible()
 
     // Buscar una llamada que tenga outcome de transferencia o reserva
-    const callCard = page.getByRole("button", { name: /Ver detalle/i }).first()
+    const callCard = page.getByText("Ver detalle").first()
     await expect(callCard).toBeVisible()
     await callCard.click()
 
@@ -76,7 +76,7 @@ test.describe("Features y Tools del Asistente", () => {
     page.once("dialog", (dialog) => dialog.accept())
 
     // Hacer clic en el indicador de sesión
-    const sessionIndicator = page.getByText(/Sesión:/i)
+    const sessionIndicator = page.getByTitle(/Sesión activa:/)
     await expect(sessionIndicator).toBeVisible()
     await sessionIndicator.click()
 

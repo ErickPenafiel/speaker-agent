@@ -18,7 +18,7 @@ test.describe("Ciclo de Vida CRUD y Mutaciones de Pedidos", () => {
 
     const toolResponse = await request.post("http://localhost:8000/vapi/tools", {
       headers: {
-        Authorization: "Bearer change-me",
+        Authorization: `Bearer ${process.env.VAPI_WEBHOOK_SECRET ?? "change-me"}`,
         "Content-Type": "application/json",
       },
       data: {
@@ -52,7 +52,7 @@ test.describe("Ciclo de Vida CRUD y Mutaciones de Pedidos", () => {
     expect(toolData.results[0].result).toContain("confirmado")
 
     // 3. Navegar a Cocina / Pedidos
-    await page.getByRole("button", { name: /Cocina \/ Pedidos/i }).click()
+    await page.getByRole("button", { name: "Cocina", exact: true }).click()
     await expect(page.getByText("Tablero de Cocina")).toBeVisible()
 
     // 4. Localizar la tarjeta del cliente recién creado dentro de la columna "Confirmados"
@@ -80,7 +80,7 @@ test.describe("Ciclo de Vida CRUD y Mutaciones de Pedidos", () => {
 
     // 8. Persistencia: Recargar la página, volver a Cocina y verificar que el pedido se mantiene en 'ready'
     await page.reload()
-    await page.getByRole("button", { name: /Cocina \/ Pedidos/i }).click()
+    await page.getByRole("button", { name: "Cocina", exact: true }).click()
     await expect(page.getByText("Tablero de Cocina")).toBeVisible()
     const persistedCard = page.getByTestId("order-card").filter({ hasText: uniqueCustomer })
     await expect(persistedCard).toBeVisible()

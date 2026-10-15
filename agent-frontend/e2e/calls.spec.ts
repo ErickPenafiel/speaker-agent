@@ -7,18 +7,18 @@ test.describe("Historial y Auditoría de Llamadas", () => {
     await page.goto("/")
 
     // Clic en pestaña Historial
-    const callsTabBtn = page.getByRole("button", { name: "Historial" })
+    const callsTabBtn = page.getByRole("button", { name: "Llamadas", exact: true })
     await expect(callsTabBtn).toBeVisible()
     await callsTabBtn.click()
 
     // Encabezado
     await expect(page.getByText("Historial de Llamadas")).toBeVisible()
     await expect(
-      page.getByText("Auditoría de conversaciones, duración y transcripciones")
+      page.getByText(/Auditoría de conversaciones, duración y transcripciones/)
     ).toBeVisible()
 
     // Clic en la primera tarjeta de llamada que tenga "Ver detalle"
-    const firstCallCard = page.getByRole("button", { name: /Ver detalle/i }).first()
+    const firstCallCard = page.getByText("Ver detalle").first()
     await expect(firstCallCard).toBeVisible({ timeout: 5000 })
     await firstCallCard.click()
 
