@@ -1,0 +1,15 @@
+# Mantiene despierto el backend (Render gratis lo duerme) y la base de datos (Neon se suspende solo).
+# Configura la variable de repositorio API_URL, p. ej. https://speaker-agent-api.onrender.com
+# Nota: el cron de GitHub Actions puede retrasarse varios minutos; no es una garantía.
+name: Keep warm
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    if: ${{ vars.API_URL != '' }}
+    steps:
+      - run: curl -fsS --max-time 90 --retry 3 --retry-delay 10 "${{ vars.API_URL }}/health/ready"

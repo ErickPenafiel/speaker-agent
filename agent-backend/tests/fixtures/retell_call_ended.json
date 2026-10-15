@@ -1,0 +1,21 @@
+{
+  "event": "call_ended",
+  "call": {
+    "call_type": "web_call",
+    "call_id": "Jabr9TXYYJHfvl6Syypi88rdAHYHmcq6",
+    "agent_id": "oBeDLoLOeuAbiuaMFXRtDOLriTJ5tSxD",
+    "call_status": "ended",
+    "metadata": {"sessionId": "{{SESSION}}", "language": "es"},
+    "start_timestamp": 1790000000000,
+    "end_timestamp": 1790000190000,
+    "disconnection_reason": "user_hangup",
+    "transcript": "Agent: La Brasa, habla Sofía...\nUser: Quiero un lomo...",
+    "transcript_object": [
+      {"role": "agent", "content": "La Brasa, habla Sofía. ¿En qué puedo ayudarle?", "words": []},
+      {"role": "user", "content": "Quiero un lomo y dos jugos de maracuyá para recoger.", "words": []},
+      {"role": "agent", "content": "Listo, su pedido está confirmado.", "words": []},
+      {"role": "user", "content": "Gracias, quiero hablar con el gerente.", "words": []}
+    ],
+    "transcript_with_tool_calls": []
+  }
+}

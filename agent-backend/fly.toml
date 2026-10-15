@@ -1,0 +1,36 @@
+# Despliegue en Fly.io (NO probado en vivo: revisar región, nombre y planes vigentes).
+#   fly launch --no-deploy --copy-config --dockerfile Dockerfile    (dentro de agent-backend/)
+#   fly secrets set DATABASE_URL=... VAPI_WEBHOOK_SECRET=... FRONTEND_ORIGIN=https://tu-app.vercel.app ...
+#   fly deploy
+app = "speaker-agent-api"
+primary_region = "iad"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  ENVIRONMENT = "production"
+  VOICE_PROVIDER = "vapi"
+  TIMEZONE = "America/La_Paz"
+  SEED_ON_START = "1"          # menú + datos de ejemplo en cada arranque (idempotente)
+
+[deploy]
+  release_command = "alembic upgrade head"   # migraciones antes de enrutar tráfico
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 1     # 0 = más barato pero con cold start; 1 = siempre caliente (recomendado para la demo)
+
+  [[http_service.checks]]
+    grace_period = "15s"
+    interval = "30s"
+    timeout = "5s"
+    method = "GET"
+    path = "/health"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"
