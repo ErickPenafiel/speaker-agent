@@ -1,4 +1,3 @@
-# CI (NO ejecutado todavía en GitHub: los mismos comandos se probaron en local).
 name: CI
 on:
   push:
@@ -47,3 +46,13 @@ jobs:
           cache-dependency-path: agent-frontend/pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
+
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
