@@ -12,7 +12,6 @@ speaker-agent/
   agent-backend/     FastAPI + SQLAlchemy async + Alembic (uv)
   agent-frontend/    React 19 + Vite + TypeScript + Tailwind v4 (pnpm)
   docs/       planificación (leer en orden)
-    origen/   documentos originales de partida
 ```
 
 ## Documentación
