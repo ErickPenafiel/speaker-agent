@@ -24,7 +24,6 @@ speaker-agent/
 | 4 | [docs/04-frontend-ux.md](docs/04-frontend-ux.md) | Pantallas, UX/UI, componentes, estados de error |
 | 5 | [docs/05-seguridad-y-costos.md](docs/05-seguridad-y-costos.md) | Clave pública de Vapi, privacidad, límites |
 | 6 | [docs/06-plan-y-criterios.md](docs/06-plan-y-criterios.md) | Plan por días, tests, criterios de aceptación, video |
-| 7 | [docs/07-revision-y-decisiones.md](docs/07-revision-y-decisiones.md) | Problemas detectados en los originales y decisiones |
 | 8 | [docs/08-backend-fases.md](docs/08-backend-fases.md) | Plan del backend por fases y su estado |
 | 9 | [docs/09-despliegue.md](docs/09-despliegue.md) | Despliegue, configuración de Vapi/Retell, observabilidad y checklist de demo |
 | 10 | [docs/10-frontend-fases.md](docs/10-frontend-fases.md) | Plan del frontend por fases, entregables y criterios |
