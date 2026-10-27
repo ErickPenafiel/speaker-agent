@@ -15,7 +15,7 @@ def _parse_time(v: Any) -> Any:
         s = v.strip().lower().replace(".", "")
         for fmt in _TIME_FORMATS:
             try:
-                return dt.datetime.strptime(s, fmt).time()
+                return dt.datetime.strptime(s, fmt).time()  # noqa: DTZ007 (solo se usa la hora, sin zona)
             except ValueError:
                 continue
     return v
