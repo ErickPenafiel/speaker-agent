@@ -1,5 +1,8 @@
 # Speaker Agent
 
+[![CI](https://github.com/ErickPenafiel/speaker-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/ErickPenafiel/speaker-agent/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Demo de **agente de voz para restaurante** (La Brasa, agente Sofía): toma pedidos, hace reservas y transfiere a una persona. Voz con **Vapi o Retell** (intercambiables), API con **FastAPI**, panel con **React**. Todos los datos son ficticios.
 
 ## Estructura
@@ -57,3 +60,7 @@ Backend: fases 0–7 completas (esquema, seed, `GET /menu`, tools multi-proveedo
 Frontend: fases 0–6 completas (cliente API tipado, sesión `X-Session-Id`, `VoiceAdapter` para Vapi/Retell, pantalla de llamada en vivo con `VoiceOrb` animado, transcripción en streaming, panel de pedidos en vivo, cocina Kanban con cambio de estado, libro de reservas, historial de llamadas con transcripción completa, modal de menú, diseño responsivo "La Brasa" con dark/light mode, detector de cold-start y suite de tests unitarios; 15 tests pasando, 0 errores de linter). **Frontend terminado.** Ver `docs/10`.
 
 Proveedor de voz: `VOICE_PROVIDER=vapi|retell` en `agent-backend/.env`.
+
+## Contribuir y seguridad
+
+Ver [CONTRIBUTING.md](CONTRIBUTING.md) y [SECURITY.md](SECURITY.md). Licencia: [MIT](LICENSE).
