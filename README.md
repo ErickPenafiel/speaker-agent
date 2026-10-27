@@ -3,6 +3,8 @@
 [![CI](https://github.com/ErickPenafiel/speaker-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/ErickPenafiel/speaker-agent/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+Español · [English](README.en.md)
+
 Demo de **agente de voz para restaurante** (La Brasa, agente Sofía): toma pedidos, hace reservas y transfiere a una persona. Voz con **Vapi o Retell** (intercambiables), API con **FastAPI**, panel con **React**. Todos los datos son ficticios.
 
 ## Estructura
